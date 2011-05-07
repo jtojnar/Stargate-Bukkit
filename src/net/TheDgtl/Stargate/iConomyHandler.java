@@ -15,6 +15,7 @@ public class iConomyHandler {
 	public static String inFundMsg = "Insufficient Funds.";
 	public static boolean toOwner = false;
 	public static boolean chargeFreeDestination = true;
+	public static boolean freeGatesGreen = false;
 	
 	public static double getBalance(String player) {
 		if (useiConomy && iconomy != null) {

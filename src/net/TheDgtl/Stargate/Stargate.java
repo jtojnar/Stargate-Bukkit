@@ -165,6 +165,7 @@ public class Stargate extends JavaPlugin {
 		iConomyHandler.inFundMsg = config.getString("not-enough-money-message", iConomyHandler.inFundMsg);
 		iConomyHandler.toOwner = config.getBoolean("toowner", iConomyHandler.toOwner);
 		iConomyHandler.chargeFreeDestination = config.getBoolean("chargefreedestination", iConomyHandler.chargeFreeDestination);
+		iConomyHandler.freeGatesGreen = config.getBoolean("freegatesgreen", iConomyHandler.freeGatesGreen);
 		
 		saveConfig();
 	}
@@ -190,6 +191,7 @@ public class Stargate extends JavaPlugin {
 		config.setProperty("not-enough-money-message", iConomyHandler.inFundMsg);
 		config.setProperty("toowner", iConomyHandler.toOwner);
 		config.setProperty("chargefreedestination", iConomyHandler.chargeFreeDestination);
+		config.setProperty("freegatesgreen", iConomyHandler.freeGatesGreen);
 		
 		config.save();
 	}

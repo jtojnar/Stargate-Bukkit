@@ -411,6 +411,7 @@ public class Portal {
 		id.setText(0, "--" + name + "--");
 		int max = destinations.size() - 1;
 		int done = 0;
+		Portal portal = Portal.getByName(name, network);
 
 		if (!isActive()) {
 			id.setText(++done, "Right click to");
@@ -424,19 +425,29 @@ public class Portal {
 				int index = destinations.indexOf(destination);
 
 				if ((index == max) && (max > 1) && (++done <= 3)) {
-					id.setText(done, destinations.get(index - 2));
+					Portal destinationPortal = Portal.getByName(destinations.get(index - 2), network);
+					boolean green = iConomyHandler.freeGatesGreen && !(iConomyHandler.useiConomy() && !portal.isFree() && !Stargate.hasPerm(activePlayer, "stargate.free.use", activePlayer.isOp()) && (iConomyHandler.chargeFreeDestination || !destinationPortal.isFree()));
+					id.setText(done, (green?"§a":"") + destinations.get(index - 2));
 				}
 				if ((index > 0) && (++done <= 3)) {
-					id.setText(done, destinations.get(index - 1));
+					Portal destinationPortal = Portal.getByName(destinations.get(index - 1), network);
+					boolean green = iConomyHandler.freeGatesGreen && !(iConomyHandler.useiConomy() && !portal.isFree() && !Stargate.hasPerm(activePlayer, "stargate.free.use", activePlayer.isOp()) && (iConomyHandler.chargeFreeDestination || !destinationPortal.isFree()));
+					id.setText(done, (green?"§a":"") + destinations.get(index - 1));
 				}
 				if (++done <= 3) {
-					id.setText(done, " >" + destination + "< ");
+					Portal destinationPortal = Portal.getByName(destination, network);
+					boolean green = iConomyHandler.freeGatesGreen && !(iConomyHandler.useiConomy() && !portal.isFree() && !Stargate.hasPerm(activePlayer, "stargate.free.use", activePlayer.isOp()) && (iConomyHandler.chargeFreeDestination || !destinationPortal.isFree()));
+					id.setText(done, (green?"§a":"") + ">" + destination + "<");
 				}
 				if ((max >= index + 1) && (++done <= 3)) {
-					id.setText(done, destinations.get(index + 1));
+					Portal destinationPortal = Portal.getByName(destinations.get(index + 1), network);
+					boolean green = iConomyHandler.freeGatesGreen && !(iConomyHandler.useiConomy() && !portal.isFree() && !Stargate.hasPerm(activePlayer, "stargate.free.use", activePlayer.isOp()) && (iConomyHandler.chargeFreeDestination || !destinationPortal.isFree()));
+					id.setText(done, (green?"§a":"") + destinations.get(index + 1));
 				}
 				if ((max >= index + 2) && (++done <= 3)) {
-					id.setText(done, destinations.get(index + 2));
+					Portal destinationPortal = Portal.getByName(destinations.get(index + 2), network);
+					boolean green = iConomyHandler.freeGatesGreen && !(iConomyHandler.useiConomy() && !portal.isFree() && !Stargate.hasPerm(activePlayer, "stargate.free.use", activePlayer.isOp()) && (iConomyHandler.chargeFreeDestination || !destinationPortal.isFree()));
+					id.setText(done, (green?"§a":"") + destinations.get(index + 2));
 				}
 			}
 		}
